@@ -1,0 +1,15 @@
+version: '3.5'
+services:
+  analitica_dev:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    environment:
+      - ENV=development
+      - PORT=3000
+      - FLASK_APP=analitica:app
+networks:
+  default:
+    name: analitica_dev
