@@ -15,7 +15,7 @@ def index():
         if old_name is not None and old_name != form.name.data:
             flash('Looks like you have changed your name!')
         if user is None:
-            user = User(username=form.name.data)
+            user = User(username=form.name.data, password= User.generate_hash(form.password.data))
             db.session.add(user)
             db.session.commit()
             session['known'] = False
