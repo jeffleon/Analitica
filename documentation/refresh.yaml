@@ -1,0 +1,35 @@
+tags:
+  - Analitica Restful API
+consumes:
+  - application/json
+parameters:
+  - name: body
+    in: body
+    required: true
+    schema:
+      id : User
+      required:
+        - first
+        - last
+      properties:
+        first:
+          type: string
+          description: Unique identifier representing a First Name
+        last:
+          type: string
+          description: Unique identifier representing a Last Name
+security:
+  - APIKeyHeader: ['Authorization']
+responses:
+  422:
+    examples:
+      application/json: 
+        {
+          "msg": "Bad Authorization header. Expected value 'Bearer <JWT>'"
+        }
+  200:
+    examples:
+      application/json: 
+        { 
+          'access_token': "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYxMzUxMTMyOCwianRpIjoiMjl"
+        }  

@@ -35,5 +35,6 @@ Flask-JWT-Extended==4.0.2
 passlib==1.7.4
 bcrypt==3.1.4
 mysql-connector-python==8.0.23
+flasgger==0.9.5
 
 

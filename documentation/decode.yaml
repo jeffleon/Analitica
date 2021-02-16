@@ -1,0 +1,24 @@
+tags:
+  - Analitica Restful API
+security:
+  - APIKeyHeader: ['Authorization']
+responses:
+  500:
+    examples:
+      application/json: 
+        {
+          "error": "<class 'jwt.exceptions.InvalidTokenError'>",
+          "message": "Invalid token. Please log in again."
+        }
+  200:
+    examples:
+      application/json: 
+        {  
+          "exp": 1616102783,
+          "fresh": false,
+          "iat": 1613510783,
+          "jti": "7a1a0e5c-b0e2-4392-ad4d-4a39944a3102",
+          "nbf": 1613510783,
+          "sub": "jhonatan.rodriguez2@gmail.com",
+          "type": "refresh"
+        }

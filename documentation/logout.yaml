@@ -1,0 +1,11 @@
+tags:
+  - Analitica Restful API
+security:
+  - APIKeyHeader: ['Authorization']
+responses:
+  200:
+    examples:
+      application/json: 
+        {
+          "msg": "logout successful"
+        }

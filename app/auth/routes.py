@@ -3,6 +3,7 @@ import os
 from flask import render_template, session, redirect, url_for, flash, request, jsonify, session
 from app.models import User
 import datetime
+from flasgger import swag_from
 import jwt
 from flask_jwt_extended import create_access_token, create_refresh_token, get_jwt_identity, jwt_required , unset_jwt_cookies
  
@@ -10,6 +11,7 @@ secret_jwt = os.environ.get("SECRET_JWT")
 
 
 @auth.route('/decode')
+@swag_from("../../documentation/decode.yaml")
 def index():
     try:
         bearer = request.headers.get("Authorization").split()[1]
@@ -47,6 +49,7 @@ def rok():
 
 @auth.route("/refresh", methods=["POST"])
 @jwt_required(refresh=True)
+@swag_from("../../documentation/refresh.yaml")
 def refresh():
     identity = get_jwt_identity()
     access_token = create_access_token(identity=identity)
@@ -54,6 +57,7 @@ def refresh():
 
 
 @auth.route("/logout", methods=["POST"])
+@swag_from("../../documentation/logout.yaml")
 def logout():
     response = jsonify({"msg": "logout successful"})
     unset_jwt_cookies(response)
@@ -61,7 +65,9 @@ def logout():
 
 
 @auth.route('/login', methods=["POST"])
+@swag_from("../../documentation/login.yaml")
 def login():
+
     try:
         data = request.get_json()
         email = data["email"]
@@ -109,34 +115,36 @@ def login():
         }, 500
 
 
+# posible implementation in the future
 @auth.route('/create_account', methods=["POST"])
+@swag_from("../../documentation/create_account.yaml")
 def create_account():
     try:
         data = request.get_json()
-        username = data["username"]
+        email = data["email"]
         password = data["password"]
         
-        user = User.query.filter_by(username=username).one_or_none()
+        user = User.query.filter_by(email=email).one_or_none()
         
         if user != None:
             return {
                 
-                'message': f'user {username} already exists'
+                'message': f'user {email} already exists'
                 
             }, 401
         
-        new_user = User(username=username, password= User.generate_hash(password))
+        new_user = User(email=email, password= User.generate_hash(password))
         
         try:
             new_user.save_to_db()
             
-            access_token = create_access_token(identity=username)
+            access_token = create_access_token(identity=email)
             
-            refresh_token = create_refresh_token(identity=username)
+            refresh_token = create_refresh_token(identity=email)
 
             return {
 
-                'message': f'User {username} was created',
+                'message': f'User {email} was created',
 
                 'access_token': access_token,
 

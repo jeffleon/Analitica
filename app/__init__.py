@@ -7,13 +7,16 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import timedelta
 from flask_jwt_extended import JWTManager
 from dotenv import load_dotenv
+from flasgger import Swagger
 import os
 
+SWAGGER_TEMPLATE = {"securityDefinitions": {"APIKeyHeader": {"type": "apiKey", "name": "Autorization", "in": "header"}}}
 bootstrap = Bootstrap()
 mail = Mail()
 moment = Moment()
 db = SQLAlchemy()
 jwt = JWTManager()
+swagger = Swagger(template=SWAGGER_TEMPLATE)
 
 def create_app(config_name):
     app = Flask(__name__)
@@ -36,6 +39,8 @@ def create_app(config_name):
     moment.init_app(app)
     # add database
     db.init_app(app)
+    # add Swagger to app 
+    swagger.init_app(app)
     # add blueprints
     from .main import main
     from .auth import auth

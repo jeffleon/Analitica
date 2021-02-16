@@ -1,0 +1,42 @@
+tags:
+  - Analitica Restful API
+consumes:
+  - application/json
+parameters:
+  - name: body
+    in: body
+    required: true
+    schema:
+      id : User
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+          description: Unique identifier representing a email
+        password:
+          type: string
+          description: Unique identifier representing a password
+responses:
+  500:
+    examples:
+      application/json: 
+        {
+          "error": "error", 
+          'message': "Something went wrong" 
+        }
+  200:
+    examples:
+      application/json: 
+        { 
+          "message": "User jhonatan.rodriguez2@gmail.com was created", 
+          'access_token': "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsIm",
+          'refresh_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsI'  
+        }
+  401:
+    examples:
+      application/json: 
+        { 
+          "message": "User already exists"
+        }           

@@ -16,7 +16,7 @@ import bcrypt
 class User(db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(64), unique=True, index=True)
+    email = db.Column(db.String(64), unique=True, index=True, default="")
     password = db.Column(db.String(120), nullable=False , default="")
     # role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
 
@@ -32,7 +32,8 @@ class User(db.Model):
     """
     @staticmethod
     def generate_hash(password):
-        return sha256.hash(password)
+        salt = bcrypt.gensalt()
+        return bcrypt.hashpw(password.encode("utf-8"), salt)
 
     """
     Verify hash and password
