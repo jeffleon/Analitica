@@ -17,6 +17,9 @@ services:
     image: mysql:5.7
     ports:
         - "33061:3306"
+    command: --init-file  /data/application/initSql.sql
+    volumes:
+        - ./db/initSql.sql:/data/application/initSql.sql
     environment:
         MYSQL_ROOT_USER: root
         MYSQL_ROOT_PASSWORD: PASS123456
