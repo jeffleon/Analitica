@@ -10,6 +10,24 @@ services:
       - ENV=development
       - PORT=3000
       - FLASK_APP=analitica:app
+      - DBHOST=database
+    networks:
+      - default
+  database:
+    image: mysql:5.7
+    ports:
+        - "33061:3306"
+    environment:
+        MYSQL_ROOT_USER: root
+        MYSQL_ROOT_PASSWORD: PASS123456
+        MYSQL_DATABASE: laravel
+        MYSQL_USER: root
+        MYSQL_PASSWORD: PASS123456
+    networks:
+      - default
+
+
+
 networks:
   default:
-    name: analitica_dev
+    driver: bridge

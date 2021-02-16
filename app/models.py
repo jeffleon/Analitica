@@ -1,22 +1,24 @@
 from app import db
-from passlib.hash import pbkdf2_sha256 as sha256
+# from passlib.hash import pbkdf2_sha256 as sha256
 
-class Role(db.Model):
-    __tablename__ = 'roles'
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(64), unique=True)
-    users = db.relationship('User', backref='role')
+import bcrypt
 
-    def __repr__(self):
-        return '<Role %r>' % self.name
+# class Role(db.Model):
+#     __tablename__ = 'roles'
+#     id = db.Column(db.Integer, primary_key=True)
+#     name = db.Column(db.String(64), unique=True)
+#     users = db.relationship('User', backref='role')
+
+#     def __repr__(self):
+#         return '<Role %r>' % self.name
 
 
 class User(db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(64), unique=True, index=True)
+    email = db.Column(db.String(64), unique=True, index=True)
     password = db.Column(db.String(120), nullable=False , default="")
-    role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
+    # role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
 
     """
     Save user details in Database
@@ -37,7 +39,7 @@ class User(db.Model):
     """
     @staticmethod
     def verify_hash(password, hash_):
-        return sha256.verify(password, hash_)
+        return bcrypt.checkpw(password.encode("utf-8"), hash_.encode("utf-8"))
 
     def __repr__(self):
-        return self.username
+        return self.email

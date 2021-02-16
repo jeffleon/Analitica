@@ -1,7 +1,7 @@
 from . import auth
 import os 
 from flask import render_template, session, redirect, url_for, flash, request, jsonify, session
-from app.models import User, Role
+from app.models import User
 import datetime
 import jwt
 from flask_jwt_extended import create_access_token, create_refresh_token, get_jwt_identity, jwt_required , unset_jwt_cookies
@@ -64,27 +64,27 @@ def logout():
 def login():
     try:
         data = request.get_json()
-        username = data["username"]
+        email = data["email"]
         password = data["password"]
     
-        user = User.query.filter_by(username=username).one_or_none()
+        user = User.query.filter_by(email=email).one_or_none()
     
         if not user:
             return {
                 
-                'message': f'User {username} doesn\'t exist'
+                'message': f'User {email} doesn\'t exist'
                 
             }, 401
         
         if User.verify_hash(password, user.password):
             
-            access_token = create_access_token(identity=username)
+            access_token = create_access_token(identity=email)
             
-            refresh_token = create_refresh_token(identity=username)
+            refresh_token = create_refresh_token(identity=email)
 
             return {
 
-                'message': f'User {username} is login now',
+                'message': f'User {email} is login now',
 
                 'access_token': access_token,
 
