@@ -1,6 +1,6 @@
 from . import auth
 import os 
-from flask import render_template, session, redirect, url_for, flash, request, jsonify
+from flask import render_template, session, redirect, url_for, flash, request, jsonify, session
 from app.models import User, Role
 import datetime
 import jwt
@@ -30,6 +30,18 @@ def index():
             'message': 'Invalid token. Please log in again.'
 
         }, 500
+
+@auth.route("/rok")
+@jwt_required()
+def rok():
+    try:
+        return {
+            'succesfully': 'your json-jwt its allowed'
+        }
+    except Exception as e:
+        return {
+            "message": e
+        }
 
 
 

@@ -23,7 +23,7 @@ def create_app(config_name):
     load_dotenv()
     # configuration for a JWT 
     app.config["JWT_COOKIE_SECURE"] = False
-    app.config["JWT_TOKEN_LOCATION"] = ["cookies"]
+    app.config["JWT_TOKEN_LOCATION"] = ["headers"]
     app.config["JWT_SECRET_KEY"] = os.environ.get("SECRET_JWT")
     app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=1)
     app.config["JWT_REFRESH_TOKEN_EXPIRES"] = timedelta(days=30)
