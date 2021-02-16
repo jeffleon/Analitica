@@ -24,7 +24,7 @@ services:
         MYSQL_ROOT_USER: root
         MYSQL_ROOT_PASSWORD: PASS123456
         MYSQL_DATABASE: laravel
-        MYSQL_USER: root
+        MYSQL_USER: test
         MYSQL_PASSWORD: PASS123456
     networks:
       - default

@@ -4,6 +4,7 @@ CREATE SCHEMA laravel;
 
 use laravel;
 
+
 -- MySQL dump 10.13  Distrib 8.0.23, for Linux (x86_64)
 --
 -- Host: 127.0.0.1    Database: laravel
