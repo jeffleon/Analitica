@@ -1,12 +1,12 @@
 # Analitica
 
 ### Pre-requisites 📋
-_We need to have installed
-```
-    - Docker
-    - Docker-compose
-    - Python
-```
+We need to have installed
+
+**Docker**
+**Docker-compose**
+**Python**
+
 ### Installation 🔧
 **1.** Clone the Repository
 ```
@@ -76,15 +76,16 @@ _We need to have installed
             |- boot.sh
             |- reboot.sh        
 ```
-## Construido con 🛠️
+## Build with 🛠️
 
-* [Flask](https://flask.palletsprojects.com/en/1.1.x/) - El framework web usado
-* [Docker](https://www.docker.com) - Generar ambiente de desarrollo
-* [Flask-JWT-Extended](https://flask-jwt-extended.readthedocs.io/en/stable/) - Usado para generar JWT
+* [Flask](https://flask.palletsprojects.com/en/1.1.x/) - 
+Web framework used
+* [Docker](https://www.docker.com) - Generate the Development environment
+* [Flask-JWT-Extended](https://flask-jwt-extended.readthedocs.io/en/stable/) - Used to generate JWT
 
-## Despliegue 📦
+## Deploy 📦
 
-## Autores ✒️
+## Authors ✒️
 
 * **Jefferson León** - *Trabajo Inicial* - [villanuevand](https://github.com/jeffleon)
 * **Jonathan Rodríguez** - *Trabajo Inicial* - [fulanitodetal](https://github.com/elchory96)
