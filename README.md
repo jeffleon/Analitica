@@ -3,9 +3,9 @@
 ### Pre-requisites 📋
 We need to have installed
 
-**Docker**
-**Docker-compose**
-**Python**
+-**Docker**
+-**Docker-compose**
+-**Python**
 
 ### Installation 🔧
 **1.** Clone the Repository
@@ -87,6 +87,6 @@ Web framework used
 
 ## Authors ✒️
 
-* **Jefferson León** - *Trabajo Inicial* - [villanuevand](https://github.com/jeffleon)
-* **Jonathan Rodríguez** - *Trabajo Inicial* - [fulanitodetal](https://github.com/elchory96)
+* **Jefferson León** - *Initial Work* - [jeffLeon](https://github.com/jeffleon)
+* **Jonathan Rodríguez** - *Initial Work* - [elchory96](https://github.com/elchory96)
 
