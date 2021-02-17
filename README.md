@@ -8,12 +8,12 @@ _We need to have installed
     - Python
 ```
 ### Installation 🔧
-**1.** clone the Repository
+**1.** Clone the Repository
 ```
     git clone https://github.com/jeffleon/Analitica.git
 ```
 
-**2.** create a .env file with the variables describe below
+**2.** Create a .env file with the variables describe below
 ```
    DEBUG=True
 ```
@@ -76,9 +76,16 @@ _We need to have installed
             |- boot.sh
             |- reboot.sh        
 ```
+## Construido con 🛠️
 
+* [Flask](https://flask.palletsprojects.com/en/1.1.x/) - El framework web usado
+* [Docker](https://www.docker.com) - Generar ambiente de desarrollo
+* [Flask-JWT-Extended](https://flask-jwt-extended.readthedocs.io/en/stable/) - Usado para generar JWT
 
+## Despliegue 📦
 
+## Autores ✒️
 
-
+* **Jefferson León** - *Trabajo Inicial* - [villanuevand](https://github.com/jeffleon)
+* **Jonathan Rodríguez** - *Trabajo Inicial* - [fulanitodetal](https://github.com/elchory96)
 
