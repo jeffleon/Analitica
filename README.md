@@ -3,9 +3,9 @@
 ### Pre-requisites 📋
 We need to have installed
 
--**Docker**
--**Docker-compose**
--**Python**
+- **Docker**
+- **Docker-compose**
+- **Python**
 
 ### Installation 🔧
 **1.** Clone the Repository
