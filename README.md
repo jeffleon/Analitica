@@ -66,15 +66,17 @@ We need to have installed
                 |- __init__.py
                 |- routes.py
             |- models.py
-            |- migrations
-            |- tests/
-            |- requirements.txt
-            |- config.py
-            |- analitica.py
-            |- Dockerfile
-            |- docker-compose.yaml
-            |- boot.sh
-            |- reboot.sh        
+        |- migrations/
+        |- tests/
+        |- db/
+        |- documentation/
+        |- requirements.txt
+        |- config.py
+        |- analitica.py
+        |- Dockerfile
+        |- docker-compose.yaml
+        |- boot.sh
+        |- reboot.sh        
 ```
 ## Build with 🛠️
 
