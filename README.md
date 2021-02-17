@@ -30,6 +30,7 @@ We need to have installed
     SECRET_JWT=XXX
 ```
 *With this vairable you can choose the string for encrypt the JWT with Bcrypt*
+
 **3.** Run the python environment 
 
 ```
