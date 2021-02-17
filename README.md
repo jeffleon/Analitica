@@ -84,6 +84,8 @@ We need to have installed
 Web framework used
 * [Docker](https://www.docker.com) - Generate the Development environment
 * [Flask-JWT-Extended](https://flask-jwt-extended.readthedocs.io/en/stable/) - Used to generate JWT
+* [Unittest](https://docs.python.org/3/library/unittest.html) - Used to do a Unit test
+* [Swagger-Flasgger](https://github.com/flasgger/flasgger) - Documentation
 
 ## Deploy 📦
 
