@@ -18,6 +18,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(64), unique=True, index=True, default="")
     password = db.Column(db.String(120), nullable=False , default="")
+    name = db.Column(db.String(120), unique=True, default="")
     # role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
 
     """

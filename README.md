@@ -79,6 +79,20 @@ We need to have installed
         |- boot.sh
         |- reboot.sh        
 ```
+
+### Endpoints Allowed
+
+```
+    POST /auth/create_account
+    GET /auth/decode 🔒
+    POST /auth/login
+    POST /auth/logout 🔒
+    POST /auth/refresh 🔒
+```
+*if you need to see the documentation go to the endpoint*
+```
+    GET /apidocs/
+```
 ## Build with 🛠️
 
 * [Flask](https://flask.palletsprojects.com/en/1.1.x/) - 
