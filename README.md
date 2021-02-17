@@ -48,6 +48,7 @@ We need to have installed
 ```
     ./boot.sh
 ```
+*The port Expose is 3000*
 
 ### Aplication Structure 
 
